@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "BigBigNotSubmitted",
+  "short_name": "未提出",
+  "description": "Make 'Not Submitted' text bigger",
+  "version": "0.0.1",
+  "author": "Vimmer",
+  
+  "browser_action":{
+    "default_popup":"popup.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://lms.ynu.ac.jp/lms/homeHoml/linkKougi",
+        "https://lms.ynu.ac.jp/lms/corsColl/"
+      ],
+      "js": [
+        "bigNotSubmitted.js"
+      ],
+      "css": []
+    }
+  ],
+
+  "permissions":[
+    "storage"
+  ]
+
+}
