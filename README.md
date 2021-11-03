@@ -34,6 +34,8 @@ BigBigNotSubmittedをピン留めした後、
 プレビューも下に表示されます (日本語/Englishはプレビュー用)  
 設定後Saveボタンをクリックし画面更新すれば反映されます。Resetボタンを押せば元(15px, #339933)に戻ります  
 ![c](images/photo_03.png)  
+また、Rainbow Modeを押せば、未提出が七色に光ります  
+![c](images/photo_10.png)  
 
 
 ## サーバー負荷について
