@@ -4,7 +4,7 @@
 未提出の文字の大きくするサイズの変更、色の変更もできます。    
 English Supported!  
 クソデカ未回答は要望があれば対応します  
-[課題管理のやつ](https://github.com/OhVIton/Assignment-Management-CPと共存できます)と共存できます
+[課題管理のやつ](https://github.com/OhVIton/Assignment-Management-CP)と共存できます
 ## インストール方法
 Code → Download ZIPを押してダウンロードします  
 ![a](images/photo_04.png)  
