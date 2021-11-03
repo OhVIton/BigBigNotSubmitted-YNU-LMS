@@ -7,7 +7,7 @@ English Supported!
 [課題管理のやつ](https://github.com/OhVIton/Assignment-Management-CP)とも共存できます
 ## インストール方法
 Code → Download ZIPを押してダウンロードします  
-![a](images/photo_04.png)：ｗ 
+![a](images/photo_04.png)
 ダウンロードしたファイルを右クリック→すべて展開(Windows)か、ダブルクリックで展開(Mac)してください  
 ![a](images/photo_05.png)  
   
