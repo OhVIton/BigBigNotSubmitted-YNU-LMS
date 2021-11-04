@@ -28,18 +28,18 @@ function restore_options() {
         is_rainbow: false
     }, function (items) {
         document.innerText = ''
-        switch(items.lang) {
+        switch (items.lang) {
             case "日本語":
-                document.getElementById("notsubmitted").innerText = "未提出";
+                document.getElementsByName("notsubmitted").forEach((elem) => { elem.innerText = "未提出" })
                 break
             case "English":
-                document.getElementById("notsubmitted").innerText = "Not Submitted";
+                document.getElementsByName("notsubmitted").forEach((elem) => { elem.innerText = "未提出" });
                 break
         }
         document.getElementById('fontSize').value = items.size;
         document.getElementById('fontColor').value = items.color;
         document.getElementById("notsubmitted").style = `font-size: ${items.size}px; color: ${items.color}`
-        if(items.is_rainbow)
+        if (items.is_rainbow)
             enable_rainbow()
     });
 }
@@ -52,48 +52,51 @@ function enable_rainbow() {
         const COLORS = new Array(CNUM); // color of font
         const MSEC = 50;   // update interval(millimeters second)
         const GLOW = 3;    // can be set from '0' for no GLOW, to 10
-        const OBJ = document.getElementById('notsubmitted');
-        const STR = OBJ.firstChild.nodeValue;
-        const LEN = STR.length;
+        const OBJs = document.getElementsByName('notsubmitted');
         const C_LEN = COLORS.length;
         var cnt = 0;
 
-        // Setting color.
-        for (var n = 0; n < CNUM; n++) {
-            COLORS[n] = makeColors(CNUM, 0, 255, n);
-        }
-
-        // To delete a node.
-        while (OBJ.childNodes.length) OBJ.removeChild(OBJ.childNodes[0]);
-
-        // To create the elements.
-        for (var i = 0; i < LEN; i++) {
-            const CHARA = document.createElement('span');
-            CHARA.setAttribute('id', 'Str' + i);
-            CHARA.appendChild(document.createTextNode(STR.charAt(i)));
-            OBJ.appendChild(CHARA);
-        }
-
-        // Set the color to each character.
-        for (var i = 0; i < LEN; i++) {
-            var c = COLORS[i % C_LEN];
-            document.getElementById('Str' + i).style.color = c;
-        }
-
-        // Main routine, change a color.
-        setInterval(function () {
-            var fc = 0;             // order of color
-            const SOBJ = new Array(); // stores the information of the object
-            for (var i = 0; i < LEN; i++) {
-                fc = COLORS[(i + cnt) % C_LEN];
-                SOBJ[i] = document.getElementById('Str' + i).style;
-                SOBJ[i].color = fc;
-                if (GLOW) {
-                    SOBJ[i].textShadow = '0 0 ' + GLOW + 'px ' + fc;
-                }
+        OBJs.forEach((OBJ, index) => {
+            const STR = OBJ.firstChild.nodeValue;
+            const LEN = STR.length;
+            // Setting color.
+            for (var n = 0; n < CNUM; n++) {
+                COLORS[n] = makeColors(CNUM, 0, 255, n);
             }
-            cnt = (cnt + 1) % C_LEN;
-        }, MSEC);
+
+            // To delete a node.
+            while (OBJ.childNodes.length) OBJ.removeChild(OBJ.childNodes[0]);
+
+            // To create the elements.
+            for (var i = 0; i < LEN; i++) {
+                const CHARA = document.createElement('span');
+                CHARA.setAttribute('id', index + 'Str' + i);
+                CHARA.appendChild(document.createTextNode(STR.charAt(i)));
+                OBJ.appendChild(CHARA);
+            }
+
+            // Set the color to each character.
+            for (var i = 0; i < LEN; i++) {
+                var c = COLORS[i % C_LEN];
+                document.getElementById(index + 'Str' + i).style.color = c;
+            }
+
+            // Main routine, change a color.
+            setInterval(function () {
+                var fc = 0;             // order of color
+                const SOBJ = new Array(); // stores the information of the object
+                for (var i = 0; i < LEN; i++) {
+                    fc = COLORS[(i + cnt) % C_LEN];
+                    SOBJ[i] = document.getElementById(index + 'Str' + i).style;
+                    SOBJ[i].color = fc;
+                    if (GLOW) {
+                        SOBJ[i].textShadow = '0 0 ' + GLOW + 'px ' + fc;
+                    }
+                }
+                cnt = (cnt + 1) % C_LEN;
+            }, MSEC);
+        });
+
     });
 }
 
