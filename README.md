@@ -11,14 +11,14 @@ Code → Download ZIPを押してダウンロードします
 ダウンロードしたファイルを右クリック→すべて展開(Windows)か、ダブルクリックで展開(Mac)してください  
 ![a](images/photo_05.png)  
   
-次に、Chromeを開き、アドレスバーに[chrome://extensions](chrome://extensions)と入力し、アクセスします。一番右にある３つ点が縦に並んだやつ→その他のツール→拡張機能でもいいです。 
+次に、Chromeを開き、アドレスバーに[chrome://extensions](chrome://extensions)と入力し、アクセスします。一番右にある３つ点が縦に並んだやつ→その他のツール→拡張機能でもいいです。 
 ![a](images/photo_06.png)  
 以下の画面が開いたら、右上にあるデベロッパーモードをクリックして有効化してください  
-![a](images/photo_07.png)  
-そして、「パッケージ化されていない拡張機能を読み込む」をクリックして、
-![a](images/photo_08.png)
-ダウンロードしたフォルダ内の*srcフォルダ*を読み込みます  
-![a](images/photo_09.png)
+![a](images/photo_08.png)  
+そして、先程展開したものをここにドラッグアンドドロップします  
+![a](images/photo_09.png)  
+
+これで完了。おめでとう。  
 これで完了。おめでとう。
 
 

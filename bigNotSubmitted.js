@@ -10,6 +10,7 @@ greenTextElems.forEach(elem => {
         notSubmittedElems.push(elem)
     }
 });
+console.log(notSubmittedElems)
 
 chrome.storage.sync.get({
     size: "30",
@@ -49,7 +50,7 @@ function enable_rainbow(OBJ, index) {
     // To create the elements.
     for (var i = 0; i < LEN; i++) {
         const CHARA = document.createElement('span');
-        CHARA.setAttribute('id',index+'Str' + i);
+        CHARA.setAttribute('id',index + 'Str' + i);
         //CHARA.setAttribute('name', 'Str' + i);
         CHARA.appendChild(document.createTextNode(STR.charAt(i)));
         OBJ.appendChild(CHARA);
