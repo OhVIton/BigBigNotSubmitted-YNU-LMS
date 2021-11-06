@@ -6,7 +6,7 @@ English Supported!
 クソデカ未回答は要望があれば対応します  
 [課題管理のやつ](https://github.com/OhVIton/Assignment-Management-CP)とも共存できます
 ## インストール方法
-Code → Download ZIPを押してダウンロードします  
+`Code` → `Download ZIP`を押してダウンロードします  
 ![a](images/photo_04.png)
 ダウンロードしたファイルを右クリック→すべて展開(Windows)か、ダブルクリックで展開(Mac)してください  
 ![a](images/photo_05.png)  
@@ -15,7 +15,7 @@ Code → Download ZIPを押してダウンロードします
 ![a](images/photo_06.png)  
 以下の画面が開いたら、右上にあるデベロッパーモードをクリックして有効化してください  
 ![a](images/photo_08.png)  
-そして、先程展開したものをここにドラッグアンドドロップします  
+そして、先程展開した`BigBigNotSubmitted-YNU-LMS-master`内にある、`open_here`フォルダを拡張機能のページにドラッグアンドドロップします  
 ![a](images/photo_09.png)  
 
 これで完了。おめでとう。  
