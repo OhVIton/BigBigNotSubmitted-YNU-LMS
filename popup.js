@@ -30,10 +30,10 @@ function restore_options() {
         document.innerText = ''
         switch (items.lang) {
             case "日本語":
-                document.getElementsByName("notsubmitted").forEach((elem) => { elem.innerText = "未提出" })
+                document.getElementById("notsubmitted").innerText = "未提出" 
                 break
             case "English":
-                document.getElementsByName("notsubmitted").forEach((elem) => { elem.innerText = "未提出" });
+                document.getElementById("notsubmitted").innerText = "Not submitted"
                 break
         }
         document.getElementById('fontSize').value = items.size;
