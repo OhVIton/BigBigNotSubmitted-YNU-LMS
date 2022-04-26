@@ -1,26 +1,43 @@
-var LANGUAGE = document.querySelector("#langList > option[selected]").textContent
+function getLanguage() {
+    const LOGOUT_TEXT = document.querySelector("#form-id > div > ul > li.logoutButtonFrame > a").textContent
+    return LOGOUT_TEXT.includes("Logout") ? "English" : "日本語"
+}
 
-var notsubmittedText = LANGUAGE == "日本語" ? "未提出" : "Not submitted"
-var greenTextElems = document.querySelectorAll("tbody > tr > td.td02 span.green1:not(a)")
+var LANGUAGE = getLanguage();
+if(LANGUAGE == 'English') {
+    NOT_VIEWED_TXT = 'Not viewed';
+    NOT_EXECUTED_TXT = 'Not executed'
+    NOT_SUBMITTED_TXT = 'Not submitted'
+    NOT_RESPONDED_TXT = 'Not responded'
+} else {
+    NOT_VIEWED_TXT = '未参照'
+    NOT_EXECUTED_TXT = '未実施'
+    NOT_SUBMITTED_TXT = '未提出'
+    NOT_RESPONDED_TXT = '未回答'
+}
+
+var greenTextElems = Array.from(document.querySelectorAll('[id^=REP],[id^=ANK],[id^=TES]')).map(x => x.parentElement.querySelector('td.jyugyeditCell > span'))
 
 var notSubmittedElems = []
 
 greenTextElems.forEach(elem => {
-    if (elem.textContent == notsubmittedText) {
+    if (elem.innerHTML == NOT_EXECUTED_TXT || elem.innerHTML == NOT_SUBMITTED_TXT || elem.innerHTML == NOT_RESPONDED_TXT || elem.innerHTML == NOT_VIEWED_TXT) {
         notSubmittedElems.push(elem)
     }
 });
 console.log(notSubmittedElems)
 
 chrome.storage.sync.get({
-    size: "30",
-    color: "#339933",
+    size: "32",
+    color: "#006996",
+    bcolor: "#c4e2ef",
     lang: "日本語",
     is_rainbow: false
 }, (items) => {
     notSubmittedElems.forEach((nsub, index) => {
-        nsub.style = `font-size: ${items.size}px; color: ${items.color}`
-        nsub.name = 'notsubmitted'
+        nsub.setAttribute('class', '')
+        nsub.style = `font-size: ${items.size}px; color: ${items.color}; background-color: ${items.bcolor};`
+        nsub.parentElement.parentElement.querySelector('[id^=REP],[id^=ANK],[id^=TES]').querySelector('a').style = `font-size: ${items.size}px;`
         if(items.is_rainbow) {
             console.log(nsub)
             enable_rainbow(nsub, index)
@@ -63,6 +80,7 @@ function enable_rainbow(OBJ, index) {
     }
 
     // Main routine, change a color.
+    
     setInterval(function () {
         var fc = 0;             // order of color
         const SOBJ = new Array(); // stores the information of the object
@@ -75,6 +93,9 @@ function enable_rainbow(OBJ, index) {
             }
         }
         cnt = (cnt + 1) % C_LEN;
+        if (!items.is_rainbow) {
+            clearInterval()
+        }
     }, MSEC);
 }
 
